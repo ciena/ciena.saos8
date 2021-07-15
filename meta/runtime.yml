@@ -1,0 +1,8 @@
+---
+requires_ansible: '>=2.9.10,<2.11'
+plugin_routing:
+  action:
+    saos8_command:
+      redirect: ciena.saos8.saos8
+    saos8_facts:
+      redirect: ciena.saos8.saos8
