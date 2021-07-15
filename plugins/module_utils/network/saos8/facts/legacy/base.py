@@ -44,7 +44,7 @@ class FactsBase(object):
 
 class Default(FactsBase):
 
-    COMMANDS = ["chassis show device-id"]
+    COMMANDS = ["chassis device-id show"]
 
     def populate(self):
         super(Default, self).populate()
@@ -53,7 +53,7 @@ class Default(FactsBase):
         self.facts.update(self.platform_facts())
 
     def parse_serialnum(self, data):
-        match = re.search(r"\| Serial Number +\| +(\S+)", data)
+        match = re.search(r"\| +Module Serial Number +\| +(\S+)", data)
         if match:
             return match.group(1)
 

@@ -49,14 +49,14 @@ class Cliconf(CliconfBase):
         reply = self.get("software show")
         data = to_text(reply, errors="surrogate_or_strict").strip()
 
-        match = re.search(r"Running Package +\: (\S+)", data)
+        match = re.search(r"running   \| (\S+)", data)
         if match:
             device_info["network_os_version"] = match.group(1).strip(",")
 
         reply = self.get("chassis show capabilities")
         data = to_text(reply, errors="surrogate_or_strict").strip()
 
-        model_search = re.search(r"Platform Name + \| (\S+)", data)
+        model_search = re.search(r"Chassis Description + \| (\S+)", data)
         if model_search:
             device_info["network_os_model"] = model_search.group(1)
 
